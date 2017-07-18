@@ -1,9 +1,7 @@
 var mysql = require('mysql');
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-
-router.post('/showall', (req, res)=> {
-
+router.post('/del', (req, res)=> {
     var connection = mysql.createConnection({
         host: 'localhost',
         user: 'root',
@@ -12,12 +10,12 @@ router.post('/showall', (req, res)=> {
         port: 3306
     });
     connection.connect();
-    connection.query('select * from users', function (err, result) {
+    var delId = req.body.id;
+    connection.query('DELETE FROM users where id=?', delId, function (err, result) {
         if (err) {
-            console.log('showerr');
+            console.log('delerr');
             return;
         }
-        res.send(result);
     });
 });
 

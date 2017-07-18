@@ -14,7 +14,7 @@ function addNewUser() {
             sex: sex,
             phone: phone,
             email: email,
-            remark: remark
+            remark: remark,
         }),
 
         contentType: "application/json; charset=utf-8",
@@ -31,6 +31,7 @@ function showAll() {
         contentType: 'application/json;charset=utf-8',
         success: function (result) {
             for (var i = 0; i < result.length; i++) {
+                let id = result[i].id;
                 let name = result[i].name;
                 let age = result[i].age;
                 let sex = result[i].sex;
@@ -38,12 +39,28 @@ function showAll() {
                 let email = result[i].email;
                 let remark = result[i].remark;
                 var addTr = document.createElement('tr');
-                addTr.innerHTML = "<td>" + name + "</td>" + "<td>" + age + "</td>" + "<td>" + sex + "</td>" + "<td>" + phone
-                    + "</td>" + "<td>" + email + "</td>" + "<td>" + remark + "</td>"
-                    + "<td><span  onclick='del(this)'><img src='img/del.png'></span></td>";
+                addTr.id = result[i].id;
+                addTr.innerHTML = "<td class='thStylr' id='num'>" + id + "</td>" + "<td class='thStylr'>" + name + "</td>" + "<td class='thStylr'>" + age + "</td>" +
+                    "<td class='thStylr'>" + sex + "</td>" + "<td class='thStylr'>" + phone + "</td>" +
+                    "<td class='thStylr'>" + email + "</td>" + "<td class='thStylr'>" + remark + "</td>"
+                    + "<td class='thStylr'><span  onclick='delet(this)'><img src='img/del.png'></span></td>";
                 document.getElementById('tables').appendChild(addTr);
             }
         }
     })
+}
 
+function delet(obj) {
+    var trId = obj.parentNode.parentNode.id;
+    var trObj = document.getElementById(trId);
+    document.getElementById("tables").removeChild(trObj);
+    $.ajax({
+        type:"post",
+        url:"/del",
+        data:JSON.stringify({id:trId}),
+        contentType:"application/json;charset=utf-8",
+        success:function () {
+            showAll();
+        }
+    })
 }

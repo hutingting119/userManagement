@@ -12,13 +12,15 @@ router.post('/insert', (req, res)=> {
         port: 3306
     });
     connection.connect();
-    var arr = Object.keys(req.body).map(function (key) { return req.body[key]; });
-    connection.query('INSERT INTO usesrs(name, age, sex,phone,email,remark) VALUES(?,?,?,?,?,?)',arr, function (err, result) {
-            if (err) {
-                console.log('err');
-                return;
-            }
-        });
+    var arr = Object.keys(req.body).map(function (key) {
+        return req.body[key];
+    });
+    connection.query('INSERT INTO users(name, age, sex,phone,email,remark) VALUES(?,?,?,?,?,?)', arr, function (err, result) {
+        if (err) {
+            console.log('inserterr');
+            return;
+        }
+    });
 });
 
 module.exports = router;
