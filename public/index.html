@@ -6,12 +6,13 @@
     <script type="text/javascript" src="main.js"></script>
     <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.css">
     <link rel="stylesheet" href="main.css">
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js"></script>
 
     <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 </head>
-<body class="bodystyle">
+<body class="bodystyle" onload="showAll()">
 <div class="header" data-toggle="modal" data-target="#modal">用户信息管理</div>
 <span class="addUser" data-toggle="modal" data-target="#myModal"><img src="img/add.png" alt=""></span>
 
@@ -71,7 +72,6 @@
                 </div>
                 <br>
 
-
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">取消
@@ -83,7 +83,7 @@
         </div>
     </div>
 </div>
-<table class="table">
+<table class="table" id="tables">
     <thead>
     <tr>
         <th>用户名</th>
@@ -92,6 +92,7 @@
         <th>移动电话</th>
         <th>电子邮件</th>
         <th>备注</th>
+        <th>删除</th>
     </tr>
     </thead>
 </table>
