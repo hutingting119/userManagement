@@ -20,7 +20,9 @@ function addNewUser() {
         contentType: "application/json; charset=utf-8",
         success: function (result) {
         }
-    })
+    });
+    location.replace(location);
+
 }
 
 function showAll() {
@@ -68,7 +70,7 @@ function modelValue(obj) {
 
 }
 function updates() {
-    var id=document.getElementById("number").value;
+    var id = document.getElementById("number").value;
     var name = document.getElementById('updatename').value;
     var age = document.getElementById('updateage').value;
     var sex = document.getElementById('updatesex').value;
@@ -93,7 +95,7 @@ function updates() {
 
         }
     })
-
+    location.replace(location);
 }
 
 function delet(obj) {

@@ -15,7 +15,7 @@ router.post('/updates', (req, res)=> {
         return req.body[key];
     });
     arr.push(arr[0]), arr.splice(0, 1);
-    connection.query('UPDATE users SET name=?,age=?, sex=?,phone=?,email=?,remark =? where id=6', arr, function (err, result) {
+    connection.query('UPDATE users SET name=?,age=?, sex=?,phone=?,email=?,remark =? where id=?', arr, function (err, result) {
         if (err) {
             console.log('err');
             return;
