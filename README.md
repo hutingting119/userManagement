@@ -18,7 +18,8 @@
 4. 使用 mocha 完成了 API 的测试
 5. 使用 Git 作为控制版本，实现小步提交
 
-##运行方式：
+## 运行方式：
+
 1.git clone git@github.com:hutingting119/userManagement.git
 2.npm install
 3.node server.js
