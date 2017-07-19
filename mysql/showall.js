@@ -18,6 +18,8 @@ router.post('/showall', (req, res)=> {
             return;
         }
         res.send(result);
+        // console.log(result);
+        // res.send(200);
     });
 });
 

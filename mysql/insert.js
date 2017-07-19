@@ -20,6 +20,7 @@ router.post('/insert', (req, res)=> {
             console.log('inserterr');
             return;
         }
+        res.send(result);
     });
 });
 

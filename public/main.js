@@ -19,10 +19,10 @@ function addNewUser() {
 
         contentType: "application/json; charset=utf-8",
         success: function (result) {
-        }
+            location.replace(location);
+            console.log(result);
+        },
     });
-    location.replace(location);
-
 }
 
 function showAll() {
@@ -31,6 +31,7 @@ function showAll() {
         url: '/showall',
         contentType: 'application/json;charset=utf-8',
         success: function (result) {
+            // console.log(200);
             for (var i = 0; i < result.length; i++) {
                 let id = result[i].id;
                 let name = result[i].name;
@@ -92,10 +93,9 @@ function updates() {
         }),
         contentType: "application/json; charset=utf-8",
         success: function (result) {
-
+            location.replace(location);
         }
     })
-    location.replace(location);
 }
 
 function delet(obj) {
@@ -107,8 +107,9 @@ function delet(obj) {
         url: "/del",
         data: JSON.stringify({id: trId}),
         contentType: "application/json;charset=utf-8",
-        success: function () {
+        success: function (result) {
             showAll();
+            console.log(result);
         }
     })
 }

@@ -16,6 +16,7 @@ router.post('/del', (req, res)=> {
             console.log('delerr');
             return;
         }
+        res.send(200);
     });
 });
 
